@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.omg.org/bpmn20" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:bpsim="http://www.bpsim.org/schemas/1.0" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:drools="http://www.jboss.org/drools" id="_PR0f0B2_EeukGbDXpi2cMw" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd http://www.jboss.org/drools drools.xsd http://www.bpsim.org/schemas/1.0 bpsim.xsd http://www.omg.org/spec/DD/20100524/DC DC.xsd http://www.omg.org/spec/DD/20100524/DI DI.xsd " exporter="jBPM Process Modeler" exporterVersion="2.0" targetNamespace="http://www.omg.org/bpmn20">
+<bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.omg.org/bpmn20" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:bpsim="http://www.bpsim.org/schemas/1.0" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:drools="http://www.jboss.org/drools" id="_t7ewwB2_EeukGbDXpi2cMw" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd http://www.jboss.org/drools drools.xsd http://www.bpsim.org/schemas/1.0 bpsim.xsd http://www.omg.org/spec/DD/20100524/DC DC.xsd http://www.omg.org/spec/DD/20100524/DI DI.xsd " exporter="jBPM Process Modeler" exporterVersion="2.0" targetNamespace="http://www.omg.org/bpmn20">
   <bpmn2:signal id="_30269022-e9d8-351b-aaab-b52e5d0de2b7" name="Parent"/>
   <bpmn2:process id="fail-over-non-async.parent" drools:packageName="com.bala.fail_over_non_async" drools:version="1.0" drools:adHoc="false" name="parent" isExecutable="true" processType="Public">
     <bpmn2:sequenceFlow id="_E0B60E4E-83A6-4FF7-9AC9-446E919D99BC" sourceRef="_C99A83CE-C39B-414B-8E55-8B57FD324FD3" targetRef="_11BE0BA0-A4A5-4D02-9D98-323DD49B7C16">
@@ -90,7 +90,13 @@
         </bpmn2:extensionElements>
         <bpmn2:incoming>_D82D2756-804D-49D0-8B86-94E2ADBF7ACE</bpmn2:incoming>
         <bpmn2:outgoing>_A31F06BE-0D3D-4CEB-ADA0-D5B157501EEE</bpmn2:outgoing>
-        <bpmn2:script><![CDATA[try
+        <bpmn2:script><![CDATA[System.out.println("======================");
+System.out.println("======================");
+System.out.println("Inside event subprocess of pid :" + kcontext.getProcessInstance().getId());
+System.out.println("======================");
+System.out.println("======================");
+
+try
 {
     Thread.sleep(120000);
 }
@@ -106,12 +112,12 @@ System.out.println("Caught the exception finally");]]></bpmn2:script>
       </bpmn2:endEvent>
       <bpmn2:startEvent id="_4A6A3ADC-153B-4520-8C9B-92003AF54735">
         <bpmn2:outgoing>_D82D2756-804D-49D0-8B86-94E2ADBF7ACE</bpmn2:outgoing>
-        <bpmn2:signalEventDefinition id="_PR0f0R2_EeukGbDXpi2cMw" signalRef="_30269022-e9d8-351b-aaab-b52e5d0de2b7"/>
+        <bpmn2:signalEventDefinition id="_t7ewwR2_EeukGbDXpi2cMw" signalRef="_30269022-e9d8-351b-aaab-b52e5d0de2b7"/>
       </bpmn2:startEvent>
     </bpmn2:subProcess>
   </bpmn2:process>
-  <bpmndi:BPMNDiagram id="_PR0f0h2_EeukGbDXpi2cMw">
-    <bpmndi:BPMNPlane id="_PR0f0x2_EeukGbDXpi2cMw" bpmnElement="fail-over-non-async.parent">
+  <bpmndi:BPMNDiagram id="_t7ewwh2_EeukGbDXpi2cMw">
+    <bpmndi:BPMNPlane id="_t7ewwx2_EeukGbDXpi2cMw" bpmnElement="fail-over-non-async.parent">
       <bpmndi:BPMNShape id="shape__EDCCF730-5627-43E6-990E-AFE3B601B618" bpmnElement="_EDCCF730-5627-43E6-990E-AFE3B601B618" isExpanded="true">
         <dc:Bounds height="253.0" width="653.0" x="305.0" y="223.0"/>
       </bpmndi:BPMNShape>
@@ -158,12 +164,12 @@ System.out.println("Caught the exception finally");]]></bpmn2:script>
       </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
-  <bpmn2:relationship id="_PR0f1B2_EeukGbDXpi2cMw" type="BPSimData">
+  <bpmn2:relationship id="_t7fX0B2_EeukGbDXpi2cMw" type="BPSimData">
     <bpmn2:extensionElements>
       <bpsim:BPSimData>
         <bpsim:Scenario xsi:type="bpsim:Scenario" id="default" name="Simulationscenario">
           <bpsim:ScenarioParameters xsi:type="bpsim:ScenarioParameters"/>
-          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_77AF9E86-B52F-4E9A-83B8-8AD30253735D" id="_PR0f1R2_EeukGbDXpi2cMw">
+          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_77AF9E86-B52F-4E9A-83B8-8AD30253735D" id="_t7fX0R2_EeukGbDXpi2cMw">
             <bpsim:TimeParameters xsi:type="bpsim:TimeParameters">
               <bpsim:ProcessingTime xsi:type="bpsim:Parameter">
                 <bpsim:NormalDistribution mean="0.0" standardDeviation="0.0"/>
@@ -183,14 +189,14 @@ System.out.println("Caught the exception finally");]]></bpmn2:script>
               </bpsim:UnitCost>
             </bpsim:CostParameters>
           </bpsim:ElementParameters>
-          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_C99A83CE-C39B-414B-8E55-8B57FD324FD3" id="_PR0f1h2_EeukGbDXpi2cMw">
+          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_C99A83CE-C39B-414B-8E55-8B57FD324FD3" id="_t7fX0h2_EeukGbDXpi2cMw">
             <bpsim:TimeParameters xsi:type="bpsim:TimeParameters">
               <bpsim:ProcessingTime xsi:type="bpsim:Parameter">
                 <bpsim:NormalDistribution mean="0.0" standardDeviation="0.0"/>
               </bpsim:ProcessingTime>
             </bpsim:TimeParameters>
           </bpsim:ElementParameters>
-          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_11BE0BA0-A4A5-4D02-9D98-323DD49B7C16" id="_PR0f1x2_EeukGbDXpi2cMw">
+          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_11BE0BA0-A4A5-4D02-9D98-323DD49B7C16" id="_t7fX0x2_EeukGbDXpi2cMw">
             <bpsim:TimeParameters xsi:type="bpsim:TimeParameters">
               <bpsim:ProcessingTime xsi:type="bpsim:Parameter">
                 <bpsim:NormalDistribution mean="0.0" standardDeviation="0.0"/>
@@ -213,7 +219,7 @@ System.out.println("Caught the exception finally");]]></bpmn2:script>
         </bpsim:Scenario>
       </bpsim:BPSimData>
     </bpmn2:extensionElements>
-    <bpmn2:source>_PR0f0B2_EeukGbDXpi2cMw</bpmn2:source>
-    <bpmn2:target>_PR0f0B2_EeukGbDXpi2cMw</bpmn2:target>
+    <bpmn2:source>_t7ewwB2_EeukGbDXpi2cMw</bpmn2:source>
+    <bpmn2:target>_t7ewwB2_EeukGbDXpi2cMw</bpmn2:target>
   </bpmn2:relationship>
 </bpmn2:definitions>
